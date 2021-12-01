@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="hastane" Class="dbDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DMR165;Initial Catalog=hastane;Integrated Security=True" SettingsObjectName="WindowsFormsApp3.Properties.Settings" SettingsPropertyName="hastaneConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Tbl_Bolum" Member="Tbl_Bolums">
+    <Type Name="Tbl_Bolum">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="bolumAdi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="bolumKisaltma" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Tbl_Bolum_Tbl_Sekreter" Member="Tbl_Sekreters" ThisKey="id" OtherKey="sekreterBolumid" Type="Tbl_Sekreter" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Doktor" Member="Tbl_Doktors">
+    <Type Name="Tbl_Doktor">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="doktorAdi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="doktorSoyadi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="doktorTel" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="doktorBolumid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="doktorUnvanid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="doktorSekreterid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="doktorUserid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Tbl_Doktor_Tbl_Recete" Member="Tbl_Recetes" ThisKey="id" OtherKey="doktorid" Type="Tbl_Recete" />
+      <Association Name="Tbl_Sekreter_Tbl_Doktor" Member="Tbl_Sekreter" ThisKey="doktorSekreterid" OtherKey="id" Type="Tbl_Sekreter" IsForeignKey="true" />
+      <Association Name="Tbl_Unvan_Tbl_Doktor" Member="Tbl_Unvan" ThisKey="doktorUnvanid" OtherKey="id" Type="Tbl_Unvan" IsForeignKey="true" />
+      <Association Name="Tbl_User_Tbl_Doktor" Member="Tbl_User" ThisKey="doktorUserid" OtherKey="id" Type="Tbl_User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Eczaci" Member="Tbl_Eczacis">
+    <Type Name="Tbl_Eczaci">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="eczaciAdi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="eczaciSoyadi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="eczaciTel" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="eczaciAdresi" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="eczaciUserid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Tbl_User_Tbl_Eczaci" Member="Tbl_User" ThisKey="eczaciUserid" OtherKey="id" Type="Tbl_User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Hasta" Member="Tbl_Hastas">
+    <Type Name="Tbl_Hasta">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="hastaAdi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="hastaSoyadi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="hastaTel" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="hastaAdres" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="hastaUserid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Tbl_Hasta_Tbl_Recete" Member="Tbl_Recetes" ThisKey="id" OtherKey="hastaid" Type="Tbl_Recete" />
+      <Association Name="Tbl_User_Tbl_Hasta" Member="Tbl_User" ThisKey="hastaUserid" OtherKey="id" Type="Tbl_User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_ilac" Member="Tbl_ilacs">
+    <Type Name="Tbl_ilac">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ilacAdi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Tbl_ilac_Tbl_Recete" Member="Tbl_Recetes" ThisKey="id" OtherKey="ilacid" Type="Tbl_Recete" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Sekreter" Member="Tbl_Sekreters">
+    <Type Name="Tbl_Sekreter">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sekreterAdi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sekreterSoyadi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sekreterBolumid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sekreterUserid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Tbl_Sekreter_Tbl_Doktor" Member="Tbl_Doktors" ThisKey="id" OtherKey="doktorSekreterid" Type="Tbl_Doktor" />
+      <Association Name="Tbl_Sekreter_Tbl_Recete" Member="Tbl_Recetes" ThisKey="id" OtherKey="sekreterid" Type="Tbl_Recete" />
+      <Association Name="Tbl_Bolum_Tbl_Sekreter" Member="Tbl_Bolum" ThisKey="sekreterBolumid" OtherKey="id" Type="Tbl_Bolum" IsForeignKey="true" />
+      <Association Name="Tbl_User_Tbl_Sekreter" Member="Tbl_User" ThisKey="sekreterUserid" OtherKey="id" Type="Tbl_User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Unvan" Member="Tbl_Unvans">
+    <Type Name="Tbl_Unvan">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="unvanAdi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="unvanKisaltma" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Tbl_Unvan_Tbl_Doktor" Member="Tbl_Doktors" ThisKey="id" OtherKey="doktorUnvanid" Type="Tbl_Doktor" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_User" Member="Tbl_Users">
+    <Type Name="Tbl_User">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="userType" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Association Name="Tbl_User_Tbl_Doktor" Member="Tbl_Doktors" ThisKey="id" OtherKey="doktorUserid" Type="Tbl_Doktor" />
+      <Association Name="Tbl_User_Tbl_Eczaci" Member="Tbl_Eczacis" ThisKey="id" OtherKey="eczaciUserid" Type="Tbl_Eczaci" />
+      <Association Name="Tbl_User_Tbl_Hasta" Member="Tbl_Hastas" ThisKey="id" OtherKey="hastaUserid" Type="Tbl_Hasta" />
+      <Association Name="Tbl_User_Tbl_Sekreter" Member="Tbl_Sekreters" ThisKey="id" OtherKey="sekreterUserid" Type="Tbl_Sekreter" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Recete" Member="Tbl_Recetes">
+    <Type Name="Tbl_Recete">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="hastaid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="doktorid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sekreterid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ilacid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Tarih" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Tbl_Doktor_Tbl_Recete" Member="Tbl_Doktor" ThisKey="doktorid" OtherKey="id" Type="Tbl_Doktor" IsForeignKey="true" />
+      <Association Name="Tbl_Hasta_Tbl_Recete" Member="Tbl_Hasta" ThisKey="hastaid" OtherKey="id" Type="Tbl_Hasta" IsForeignKey="true" />
+      <Association Name="Tbl_ilac_Tbl_Recete" Member="Tbl_ilac" ThisKey="ilacid" OtherKey="id" Type="Tbl_ilac" IsForeignKey="true" />
+      <Association Name="Tbl_Sekreter_Tbl_Recete" Member="Tbl_Sekreter" ThisKey="sekreterid" OtherKey="id" Type="Tbl_Sekreter" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
