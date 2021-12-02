@@ -78,6 +78,39 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>db.dbml</DependentUpon>
     </Compile>
+    <Compile Include="FrmilacListesi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmilacListesi.Designer.cs">
+      <DependentUpon>FrmilacListesi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="hastaneDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>hastaneDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Modul_Eczaci\FrmilacEkleSil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modul_Eczaci\FrmilacEkleSil.Designer.cs">
+      <DependentUpon>FrmilacEkleSil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="hastaneDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>hastaneDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="hastaneDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>hastaneDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Modul_Eczaci\eczaciAnasayfaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modul_Eczaci\eczaciAnasayfaForm.Designer.cs">
+      <DependentUpon>eczaciAnasayfaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modul_Doktor\DoktorHastaListesi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,12 +203,21 @@
     <Compile Include="Modul_Doktor\receteListesiForm.Designer.cs">
       <DependentUpon>receteListesiForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReceteEkleSil.cs">
+    <Compile Include="Modul_Doktor\ReceteEkleSil.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReceteEkleSil.Designer.cs">
+    <Compile Include="Modul_Doktor\ReceteEkleSil.Designer.cs">
       <DependentUpon>ReceteEkleSil.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FrmilacListesi.resx">
+      <DependentUpon>FrmilacListesi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modul_Eczaci\FrmilacEkleSil.resx">
+      <DependentUpon>FrmilacEkleSil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modul_Eczaci\eczaciAnasayfaForm.resx">
+      <DependentUpon>eczaciAnasayfaForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modul_Doktor\DoktorHastaListesi.resx">
       <DependentUpon>DoktorHastaListesi.cs</DependentUpon>
     </EmbeddedResource>
@@ -231,7 +273,7 @@
     <EmbeddedResource Include="Modul_Doktor\receteListesiForm.resx">
       <DependentUpon>receteListesiForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReceteEkleSil.resx">
+    <EmbeddedResource Include="Modul_Doktor\ReceteEkleSil.resx">
       <DependentUpon>ReceteEkleSil.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="db.dbml">
@@ -241,6 +283,39 @@
     </None>
     <None Include="db.dbml.layout">
       <DependentUpon>db.dbml</DependentUpon>
+    </None>
+    <None Include="hastaneDataSet.xsc">
+      <DependentUpon>hastaneDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="hastaneDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>hastaneDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="hastaneDataSet.xss">
+      <DependentUpon>hastaneDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="hastaneDataSet1.xsc">
+      <DependentUpon>hastaneDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="hastaneDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>hastaneDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="hastaneDataSet1.xss">
+      <DependentUpon>hastaneDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="hastaneDataSet2.xsc">
+      <DependentUpon>hastaneDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="hastaneDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>hastaneDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="hastaneDataSet2.xss">
+      <DependentUpon>hastaneDataSet2.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -17,5 +17,26 @@ namespace WindowsFormsApp3
         {
             InitializeComponent();
         }
+
+        private void EczaciForm_Load(object sender, EventArgs e)
+        {
+            eczaciAnasayfaForm form = new eczaciAnasayfaForm();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FrmilacEkleSil forum = new FrmilacEkleSil();
+            forum.MdiParent = this;
+            forum.Show();
+        }
+
+        private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FrmilacListesi form = new FrmilacListesi();
+            form.MdiParent = this;
+            form.Show();
+        }
     }
 }
